@@ -1,0 +1,28 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+.qoder/
+
+# Build
+target/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Screenshots
+*.png
+*.jpg
+*.jpeg
+
+# Logs
+*.log
+logs/
+
+_*.py
+_*.js
+hs_err_pid*.log
+
+# git worktree 隔离目录
+.worktrees/

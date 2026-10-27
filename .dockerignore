@@ -1,0 +1,9 @@
+target/
+!target/demo-api-0.1.jar
+.git
+.idea
+*.iml
+src/
+logs/
+*.tar
+*.md

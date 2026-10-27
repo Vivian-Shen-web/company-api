@@ -1,0 +1,75 @@
+app:
+  system-type: demo
+
+server:
+  port: 8010
+spring:
+  application:
+    name: demo-api
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/postgres?stringtype=unspecified
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 0
+      connection-timeout: 10000
+      keepalive-time: 300000
+      idle-timeout: 300000
+      max-lifetime: 1800000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    timeout: 3000ms
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 200MB
+      file-size-threshold: 2MB
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.demodomain
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: 'NULL'
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  global-config:
+    db-config:
+      id-type: assign_id
+    banner: false
+
+logging:
+  config: classpath:logback-spring.xml
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    persist-authorization: true
+
+permission:
+  white-list:
+    - /login
+
+http:
+  pool:
+    connect-timeout: 360000
+    response-timeout: 360000
+    max-total: 200
+    max-per-route: 50
+
+file-storage:
+  allowed-types: pdf,doc,docx,xls,xlsx,ppt,pptx,jpg,jpeg,png,gif,txt,md,csv
+  max-file-count: 10
+  max-file-size-mb: 20
